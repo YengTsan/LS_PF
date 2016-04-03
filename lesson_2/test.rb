@@ -1,7 +1,6 @@
-numbers = [1, 2, 3, 4]
-numbers.each do |number|
-  p number
-  numbers.shift(1)
-end
 
-p numbers
+b = ["a", "b", "c"]
+
+a1, b1, c1 = b
+
+p a1

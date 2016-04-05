@@ -23,7 +23,7 @@ def start_the_baord(input = @board_status)
   head_charactors = ["A", "B" ,"C"]
   head_charactors.each do |i|
     input[index][0] = i
-    index +=1
+    index += 1
   end
 end
 
@@ -34,7 +34,7 @@ def display_board
 end
 
 def user_marks_square_UI
-  p "Please choice a square you want"
+  puts "Please choice a square you want"
   @choice = gets.chomp.upcase
   valid_choice = []
   valid_choice_array = ["A", "B", "C"].product ["1", "2", "3"]
@@ -45,7 +45,7 @@ def user_marks_square_UI
     if valid_choice.include?(@choice)
       break
     else
-      p "#{@choice} is not a valid value, please key a valid value"
+      puts "#{@choice} is not a valid value, please key a valid value"
       @choice = gets.chomp.upcase
     end
   end
@@ -136,7 +136,8 @@ def check_win  # if someone win the game , return the winner ,or return false
      (@board_status[1][1] == @board_status[2][2] && @board_status[2][2] == @board_status[3][3] && @board_status[2][2] == "O" )||
      (@board_status[1][3] == @board_status[2][2] && @board_status[2][2] == @board_status[3][1] && @board_status[2][2] == "O"))
      display_board
-     p "The Winner is YOU!!!"
+     puts "The Winner is YOU!!!"
+     true
   elsif ((@board_status[1][1] == @board_status[1][2] && @board_status[1][2] == @board_status[1][3] &&  @board_status[1][2] == "X" ) || 
      (@board_status[2][1] == @board_status[2][2] && @board_status[2][2] == @board_status[2][3] && @board_status[2][2]  == "X" )||
      (@board_status[3][1] == @board_status[3][2] && @board_status[3][2] == @board_status[3][3] && @board_status[3][2] == "X" )||
@@ -146,45 +147,41 @@ def check_win  # if someone win the game , return the winner ,or return false
      (@board_status[1][1] == @board_status[2][2] && @board_status[2][2] == @board_status[3][3] && @board_status[2][2] == "X" )||
      (@board_status[1][3] == @board_status[2][2] && @board_status[2][2] == @board_status[3][1] && @board_status[2][2] == "X"))
       display_board
-      p "The winner is computer"
+      puts "The winner is computer"
+      true
   else
-    return false
+    false
   end
 end
 
 def check_the_board_is_available
   if @board_status.flatten.include?("-")
-    return false
+    false
   else
-    return true
+    true
   end
 end
 
-def check_the_board_is_available_computer
+def check_the_board_is_available_computer?
   if @board_status.flatten.include?("-")
-    return true
+    false
   else
-    return false
+    true
   end
 end
 
 def play_again
-  p "Do you want to play again?"
+  puts "Do you want to play again?"
   input = gets.chomp
 
   if input.downcase =="y"
-    return false
+    false
   else
-    return true
+    true
   end
 end
 
-##======================================================================================================================================
-##======================================================================================================================================
-##======================================================================================================================================
-##======================================================================================================================================
-
-p welcome
+puts welcome
 start_the_baord
 
 loop do
@@ -195,37 +192,33 @@ loop do
          user_marks_square
          break
       else
-        p "You should marks the square where is available"
+        puts "You should marks the square where is available"
       end
   end
+
   loop do
-    if check_the_board_is_available_computer
+    break if check_the_board_is_available_computer?
        computer_choice
-       if check_marks_available
-          computer_marks_square
-          break  
-       end
-    else
+    if check_marks_available
+       computer_marks_square
+       display_board
       break
     end
   end
-
-if check_win
-  if play_again
-    p "Thank you for playing the game~~"
-    break
-  else
-    restar_the_board
-  end
-elsif check_the_board_is_available
-      p "TIE~~~"
+  if check_win # it will check player first, so do not need to check between player and computer
     if play_again
-      p "Thank you for playing the game"
+      puts "Thank you for playing the game~~"
       break
     else
       restar_the_board
     end
+  elsif check_the_board_is_available
+        puts "TIE~~~"
+    if play_again
+      puts "Thank you for playing the game"
+      break
+    else
+      restar_the_board
+    end
+  end
 end
-end
-
-

@@ -32,9 +32,7 @@ p input[:fourth_line].values
 
 end
 
-display_the_board(board_hash)
-star_the_board(board_hash)
-display_the_board(board_hash)
+def action(act)
 
 
 

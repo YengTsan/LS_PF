@@ -15,7 +15,7 @@ So,the `puts str` will access the first `str` we declared at the first line.
 2.
 Because of the scope of the variable, inner scope can access the variable declared outside the block,but not vice versa.
 
-Thte `puts str` cann ott access a varaible or method named str.
+Thte `puts str` can not access a variable or method named str.
 
 
 3.
@@ -69,11 +69,11 @@ Mutating Method Arguments
 We pass "hello" to the method `change`, and return `hello word` at the 6th line, but we do not print it out.
 
 the 8th line prints the value which is created at the 5th line,
-because the method access the argument to return a specific result, it does not muated the argument.
+because the method access the argument to return a specific result, it does not mutate the argument.
 
 
 2.
-We pass the varaible to the method `change`, in the method, it declared a varaible `param` pointing to the same object as `greeting`.
+We pass the variable to the method `change`, in the method, it declared a variable `param` pointing to the same object as `greeting`.
 Because of they are pointing the same object, when we modify the object pointed by `param` , the value of `greeting` will also be changed.
 
 The 8th line print `hello world` because we used mutable method to mutate the caller.  (`<<` is mutable method)
@@ -99,16 +99,16 @@ it would not effect the argument itself.
 Working with Collections
 
 1.
-It is a Array method, we can call it affter the array with `.`,
+It is a Array method, we can call it after the array with `.`,
 and it will return a new array.
 
 When we use an Array#map,
-there will be a block with a variable,like
+there will be a block with a variable,like:
 
 `a.map {|variable| variable + 3 } ` or use `do..end` for muti-line code in the block.
 
 `a` is the original array,
-the code whithin the curly brace is the operation we want to do.
+the code within the curly brace is the operation we want to do.
 
 When we call the method `map`, it will loop through each element in the original array `a`,
 then begin executing the code within the block, then add the result to the new array.
@@ -117,11 +117,11 @@ Finally, it will return the new array.
 
 
 2.
-It is a Array method, we can call it affter the array with `.`,
+It is a Array method, we can call it after the array with `.`,
 and it will return a new array.
 
 When we use an Array#select,
-there will be a block with a variable,like
+there will be a block with a variable,like:
 
 `a.select {|variable| variable > 3 } ` or use `do..end` for muti-line code in the block.
 
@@ -154,7 +154,7 @@ The result of every block in this case would be `true or false` because the last
 
 
 5.
-The values of the elements in the returned array by `map` is the result of each times we execte the block.
+The values of the elements in the returned array by `map` is the result of each times we execute the block.
 
 The last line of code in the block is `puts` method,it will always return `nil`,
 So the `map` method will add 3 `nil` to the new array.
@@ -164,14 +164,14 @@ So the `map` method will add 3 `nil` to the new array.
 The `select` method will loop through each elements, and exectes the block.
 If the return of the block is not `false` or `nil`, it will add the element to the new array.
 
-In this case, the last line of code is `n + 2`, all elements in the original array is Interger, and `2` is Interger, too.
+In this case, the last line of code is `n + 2`, all elements in the original array is Integer, and `2` is Integer, too.
 So the result will always not be `false` or `nil`, then , it will add the all elements to the new array.
 
 The new array will be [1, 2, 3].
 
 
 7.
-The `select` method will loop through each elements, and exectes the block.
+The `select` method will loop through each elements, and executes the block.
 If the return of the block is not `false` or `nil`, it will add the element to the new array.
 
 In this case, the last line of code is 'puts n', no mater what `n` is,

@@ -1,6 +1,8 @@
-  arr = [1, 2, 3].select do |n|
-    n + 2
-    puts n
-  end
+a = [1, 2, 3, 4, 5]
 
-  p arr
+b = a.select do |i| 
+  i > 2
+  true
+end
+
+puts b

@@ -15,7 +15,7 @@ So,the `puts str` will access the first `str` we declared at the first line.
 2.
 Because of the scope of the variable, inner scope can access the variable declared outside the block,but not vice versa.
 
-Thte `puts str` can not access a variable or method named str.
+Thte `puts str` can not access a variable which is declared inside the block.
 
 
 3.

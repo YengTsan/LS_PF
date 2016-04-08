@@ -26,9 +26,9 @@ if the varaible is not declared before the block,
 the lifetime of the variable `str` is the same as the blcok,
 it will die in the end of the block,so we can't assess the variable at last line, the terminal will return undefined local variable or method `str` for main:Object
 
-
+'
 4.
-method can not assess the local variable which is declared outside the method without passing them.
+method can not access the local variable which is declared outside the method without passing them.
 
 
 5.
